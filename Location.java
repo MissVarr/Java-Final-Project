@@ -1,7 +1,7 @@
 public class Location
 {
    private int x;
-	 private int y;
+   private int y;
    public Location (int x1, int y1)
 	 {
 	   x = x1;
