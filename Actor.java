@@ -1,12 +1,11 @@
 public abstract class Actor 
 {
-	private int x, y = 0;
+	private Location loc;
 	private int length, width = 0
 	
 	public Actor()
 	{
-           x = 0;
-	   y = 0;
+           loc = new Location(0,0)
 	   length = 0;
 	   width = 0;
 	}
