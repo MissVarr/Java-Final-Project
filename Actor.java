@@ -1,27 +1,16 @@
 public abstract class Actor 
 {
-	private Location loc;
-	//size field
+	private int x, y = 0;
+	private int length, width = 0
 	
 	public Actor()
 	{
-		loc = new Location(0,0) ;
-		//size = ;
+           x = 0;
+	   y = 0;
+	   length = 0;
+	   width = 0;
 	}
 	
-	public Location getLocation()
-	{
-		return loc;
-	}
-		
-	public void moveDown()
-	{
-
-	}
-	
-	public static void isColliding(Actor a, Actor b)
-	{
-
-	}
-
+	Location returnLocation();
+	void setCollisionBox();
 }
