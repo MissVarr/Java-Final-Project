@@ -11,5 +11,4 @@ public abstract class Actor
 	}
 	
 	Location returnLocation();
-	void setCollisionBox();
 }
