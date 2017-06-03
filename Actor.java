@@ -1,11 +1,11 @@
 public class Actor 
 {
-	//private Location loc;
+	private Location loc;
 	//size field
 	
 	public Actor()
 	{
-		//loc = ;
+		loc = new Location(0,0) ;
 		//size = ;
 	}
 	
