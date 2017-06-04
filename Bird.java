@@ -1,24 +1,34 @@
 import java.awt.Event;
-import java.awt.event.ActionListener;
 
-public class Bird extends Obstacle implements ActionListener
+public class Bird extends Obstacle
 {
-	public Bird(location l)
+	private boolean direction;
+	public Bird(Location l)
 	{
-	  loc = l;
-	  length = someNum;
-	  width  = someNum;
-	}
-	public Location moveDown()
-	{
-	  
-	}
+	  setLocation(l);
+	  setLength(10);
+	  setWidth(10);
+    }
+	
 	public void move()
 	{
-	  
+	  getLocation().getX()++;
+	  if (getLocation().getX() == 100)
+		{
+			direction = true;
+		}
+		if (getLocation().getX() == 300)
+		{
+			direction = false;
+		}
+		if (direction)
+		{
+			getLocation().getX()--;
+		}
+		else
+		{
+		  getLocation().getX()++;
+		}
 	}
-	public void actionPerformed(Event e)
-	{
-		
-	}
+	
 }
