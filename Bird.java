@@ -1,34 +1,37 @@
-import java.awt.Event;
-
+import java.awt.Rectangle;
 public class Bird extends Obstacle
 {
-	private boolean direction;
 	public Bird(Location l)
 	{
 	  setLocation(l);
-	  setLength(10);
-	  setWidth(10);
-    }
+	  setLength(100);
+	  setWidth(50);
+        }
 	
 	public void move()
 	{
-	  getLocation().getX()++;
-	  if (getLocation().getX() == 100)
-		{
-			direction = true;
-		}
-		if (getLocation().getX() == 300)
-		{
-			direction = false;
-		}
-		if (direction)
-		{
-			getLocation().getX()--;
-		}
-		else
-		{
-		  getLocation().getX()++;
-		}
+	  boolean right = false;
+	  int n = getLocation().getX();
+	  if (n == 0)
+	  {
+        right = true;
+	  }
+	  if (n == 700)
+	  {
+		right = false;
+	  }
+	  if (right)
+	  {
+	    n++;
+	  }
+	  else
+	  {
+	    n--;
+	  }
 	}
-	
+	public Rectangle bounds()
+	{
+	  return (new Rectangle(getLocation().getX(), getLocation().getY(), 100, 50));
+	}
 }
+
