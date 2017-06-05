@@ -1,0 +1,43 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class Paint extends JPanel implements ActionListener
+{
+		Banana ban1;
+		Branch bra1;
+		Bird bir1;
+		Timer time;
+
+		public Paint() 
+		{
+			ban1 = new Banana(350, 300);
+			bra1 = new Branch(100, 0);
+			bir1 = new Bird (0, 500);
+			time = new Timer(1, this);
+			time.start();
+		}
+
+		public void actionPerformed(ActionEvent e) 
+		{
+			ban1.move();
+			bra1.move();
+			bir1.move();
+			repaint();
+		}
+
+		public void paint(Graphics g) 
+		{
+			super.paint(g);
+			Graphics2D g2d = (Graphics2D) g;
+			g2d.setColor(Color.YELLOW);
+			g2d.fillRect(ban1.x, ban1.y, 50, 50);
+			
+			g2d.setColor(Color.BLACK);
+			g2d.fillRect(bra1.x, bra1.y, 150, 50);
+			
+			g2d.setColor(Color.BLUE);
+			g2d.fillRect(bir1.x, bir1.y, 100, 50);
+			
+		}
+}
