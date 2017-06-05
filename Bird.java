@@ -1,37 +1,39 @@
 import java.awt.Rectangle;
-public class Bird extends Obstacle
+
+public class Bird 
 {
-	public Bird(Location l)
+	int x, y;
+	boolean right = true;
+	
+	public Bird(int startX, int startY)
 	{
-	  setLocation(l);
-	  setLength(100);
-	  setWidth(50);
-        }
+		x = startX;
+		y = startY;
+	}
 	
 	public void move()
 	{
-	  boolean right = false;
-	  int n = getLocation().getX();
-	  if (n == 0)
-	  {
-        right = true;
-	  }
-	  if (n == 700)
-	  {
-		right = false;
-	  }
-	  if (right)
-	  {
-	    n++;
-	  }
-	  else
-	  {
-	    n--;
-	  }
+		if (x == 0)
+		{
+			right = true;
+		}
+		if (x == 900)
+		{
+			right = false;
+		}
+		if (right)
+		{
+			x++;
+		}
+		else 
+		{
+			x--;
+		}
 	}
+	
 	public Rectangle bounds()
 	{
-	  return (new Rectangle(getLocation().getX(), getLocation().getY(), 100, 50));
+		return (new Rectangle(x, y, 100, 50));
 	}
+	
 }
-
