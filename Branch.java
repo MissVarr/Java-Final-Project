@@ -1,27 +1,19 @@
 import java.awt.Event;
 import java.awt.event.ActionListener;
 
-public class Branch extends Obstacle implements ActionListener
+public class Branch
 { 
-  public Branch(Location l)
-  {
-	loc = l;
-	collided = false;
-	length = someNum
-	width = someNum
+  public Branch(int startX, int startY)
+  { 
+    x = startX;
+    y = startY;
   }
-  
-  public Location returnLocation()
+  public void moveDown()
   {
-	return loc;
+    y--;
   }
-  public Location moveDown()
+  public Rectangle bounds()
   {
-	//move down
-    return loc;
-  }
-  public void actionPerformed(Event e)
-  {
-	//stuff: moveDown?
+    return (new Rectangle(x, y, 100, 50));
   }
  
