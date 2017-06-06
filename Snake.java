@@ -1,24 +1,40 @@
-import java.awt.Event;
-import java.awt.event.ActionListener;
 
-public class Snake extends Obstacle implements ActionListener
-{
-	public Snake(Location l)
+import java.awt.Rectangle;
+	public class Snake
 	{
-	  loc = l;
-	  collided = false;
-	  length = someNum;
-	  width = someNum;
+		int x, y;
+		boolean right = true;
+		
+		public Snake(int startX, int startY)
+		{
+			x = startX;
+			y = startY;
+		}
+		
+		public void move()
+		{
+			if (x == 0)
+			{
+				right = true;
+			}
+			if (x == 300)
+			{
+				right = false;
+			}
+			if (right)
+			{
+				x++;
+			}
+			else 
+			{
+				x--;
+			}
+		}
+		
+		public Rectangle bounds()
+		{
+			return (new Rectangle(x, y, 100, 50));
+		}
+		
 	}
-	public void move()
-	{
-	  
-	}
-    public Location returnLocation()
-    { 
-      return loc;
-    }
-    public void actionPerformed(Event e)
-    {
-    	
-    }
+
