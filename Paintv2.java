@@ -37,7 +37,7 @@ public class Paint extends JPanel implements ActionListener
 	{
 		Image image = null;
         try {
-            URL url = new URL("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Single.jpg/1200px-Banana-Single.jpg");
+            URL url = new URL("http://www.pngmart.com/files/1/Banana-PNG.png");
             image = ImageIO.read(url);
         } catch (IOException e) {
         	e.printStackTrace();
