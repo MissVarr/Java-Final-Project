@@ -1,14 +1,38 @@
-public abstract class Actor 
+import java.awt.Rectangle;
+
+public abstract class Actor
 {
-	private Location loc;
-	private int length, width = 0
 	
-	public Actor()
+	int x, y, length, width;
+	
+	public void move()
 	{
-           loc = new Location(0,0)
-	   length = 0;
-	   width = 0;
+		return;
 	}
 	
-	Location returnLocation();
+	public int getX()
+	{
+		return x;
+	}
+	
+	public int getY()
+	{
+		return y;
+	}
+	
+	public int getLength()
+	{
+		return length;
+	}
+	
+	public int getWidth()
+	{
+		return width;
+	}
+	
+	public Rectangle hitBox()
+	{
+		return (new Rectangle(x, y, length, width));
+	}
+	
 }
