@@ -3,10 +3,7 @@ import javax.swing.*;
 public class Draw 
 {
 	private static JFrame frame = new JFrame("MONKEY MAYHEM");
-	private enum STATE{
-		MENU,
-		GAME
-	};
+	private static boolean state = true;
 	
 	private static STATE State = STATE.MENU;
 	
@@ -16,15 +13,15 @@ public class Draw
 	}
 	
 	public static void changeState(){
-		if(State == STATE.MENU){
-			State = STATE.GAME;
+		if(state == true){
+			state = false;
 			frame.setVisible(true);
 			frame.setSize(1000, 1000);
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			frame.add(new Paint());
 		}
 		else{
-			State = STATE.MENU;
+			state = true;
 			frame.setVisible(false);
 			Menu.display();
 		}
