@@ -7,21 +7,19 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import java.awt.Image;
 import javax.swing.JLabel;
 import java.awt.Color;
-import com.jgoodies.forms.factories.DefaultComponentFactory;
-import javax.swing.JTextPane;
-import javax.swing.JMenuBar;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Menu {
 
 	private JFrame frmJ;
-	public static void main(String[] args) {
+	public static void display() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -45,7 +43,7 @@ public class Menu {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frmJ = new JFrame("MONKEY MAYHEM");
+		frmJ = new JFrame("MONKEY MAYHEM - Main Menu");
 		URL url = null;
 		Image img = null;
 		try {
@@ -59,6 +57,14 @@ public class Menu {
 		frmJ.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JButton btnPlayNow = new JButton("Play Now!");
+		btnPlayNow.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				Draw.changeState();
+				frmJ.setVisible(false);
+				//ADD STUFF TO DO WHEN BUTTON IS CLICKED HERE
+			}
+		});
 		btnPlayNow.setForeground(new Color(51, 153, 102));
 		btnPlayNow.setFont(new Font("Papyrus", Font.PLAIN, 30));
 		btnPlayNow.addActionListener(new ActionListener() {
@@ -67,6 +73,12 @@ public class Menu {
 		});
 		
 		JButton btnInstructions = new JButton("Instructions");
+		btnInstructions.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				//ADD STUFF TO DO WHEN BUTTON IS CLICKED HERE
+			}
+		});
 		btnInstructions.setForeground(new Color(51, 153, 51));
 		btnInstructions.setFont(new Font("Papyrus", Font.PLAIN, 30));
 		GroupLayout groupLayout = new GroupLayout(frmJ.getContentPane());
