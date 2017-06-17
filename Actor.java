@@ -5,10 +5,7 @@ public abstract class Actor
 	
 	int x, y, length, width;
 	
-	public void move()
-	{
-		return;
-	}
+	abstract void move();
 	
 	public int getX()
 	{
