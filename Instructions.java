@@ -15,6 +15,7 @@ import java.awt.event.MouseEvent;
 public class Instructions extends JFrame {
 
 	private JPanel contentPane;
+	private static Instructions frame = new Instructions();
 
 	/**
 	 * Launch the application.
@@ -23,7 +24,6 @@ public class Instructions extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Instructions frame = new Instructions();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -65,7 +65,7 @@ public class Instructions extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Menu.display();
-				contentPane.setVisible(false);
+				frame.setVisible(false);
 			}
 		});
 		btnReturnToMain.setForeground(new Color(51, 153, 0));
