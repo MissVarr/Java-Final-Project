@@ -5,8 +5,6 @@ public class Draw
 	private static JFrame frame = new JFrame("MONKEY MAYHEM");
 	private static boolean state = true;
 	
-	private static STATE State = STATE.MENU;
-	
 	public static void main(String[] args) 
 	{
 		Menu.display();
@@ -21,7 +19,7 @@ public class Draw
 			frame.add(new Paint());
 		}
 		else{
-			state = true;
+			state = true;;
 			frame.setVisible(false);
 			Menu.display();
 		}
