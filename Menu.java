@@ -62,7 +62,6 @@ public class Menu {
 			public void mouseClicked(MouseEvent arg0) {
 				Draw.changeState();
 				frmJ.setVisible(false);
-				//ADD STUFF TO DO WHEN BUTTON IS CLICKED HERE
 			}
 		});
 		btnPlayNow.setForeground(new Color(51, 153, 102));
@@ -76,7 +75,8 @@ public class Menu {
 		btnInstructions.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				//ADD STUFF TO DO WHEN BUTTON IS CLICKED HERE
+				Instructions.displayInstructions();
+				frmJ.setVisible(false);
 			}
 		});
 		btnInstructions.setForeground(new Color(51, 153, 51));
