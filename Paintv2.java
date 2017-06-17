@@ -1,70 +1,146 @@
 import java.awt.*;
 import java.awt.event.*;
-import javax.swing.*;
-import java.awt.Image;
 import java.io.IOException;
-import java.net.URL;
+import java.io.InputStream;
+import java.util.ArrayList;
+
 import javax.imageio.ImageIO;
+import javax.swing.*;
 
-public class Paint extends JPanel implements ActionListener
+public class Game extends JPanel implements ActionListener
 {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	//Banana b1;
-	Banana b2;
-	Timer time;
-	//boolean collision = false;
+		ArrayList<Actor> actors = new ArrayList<Actor>();
+		Timer time1;
+		int count = 0;
 
-	public Paint() 
-	{
-		//b1 = new Banana(350, 100);
-		b2 = new Banana (450, 0);
-		time = new Timer(1, this);
-		time.start();
-	}
-
-	public void actionPerformed(ActionEvent e) 
-	{
-		//b1.move();
-		b2.move();
-		//checkCollision();
-		repaint();
-	}
-
-	public void paint(Graphics g) 
-	{
-		Image image = null;
-        try {
-            URL url = new URL("http://www.pngmart.com/files/1/Banana-PNG.png");
-            image = ImageIO.read(url);
-        } catch (IOException e) {
-        	e.printStackTrace();
-        }
-		super.paint(g);
-		Graphics2D g2d = (Graphics2D) g;
-		g2d.drawImage(image, b2.x, b2.y, 75, 50, null);
-		//g2d.setColor(Color.YELLOW);
-		//g2d.fillRect(b1.x, b1.y, 50, 50);
-		//g2d.setColor(Color.GREEN);
-		//g2d.fillRect(b2.x, b2.y, 50, 50);
-		//if (collision)
-			//g2d.drawString("COLLISION", 350, 50);
-	}
-
-	/*public void checkCollision() 
-	{
-		Rectangle ban1 = b1.bounds();
-		Rectangle ban2 = b2.bounds();
-		if (ban1.intersects(ban2))
+		public Game() 
 		{
-			collision = true;
+			actors.add(new Branch(100, -200));
+			actors.add(new Banana(475, -500));
+			actors.add(new Branch(750, -800));
+			time1 = new Timer(5, this);
+			time1.start();
+			
 		}
-		else
-		{
-			collision = false;
-		}
-	}*/
 
+		public void actionPerformed(ActionEvent e) 
+		{		
+			if (actors.get(count).getY() == 1000)
+			{
+				int rnd = (int)((Math.random() * 4) + 1);
+				
+				if(rnd == 1)
+				{
+					actors.add(new Branch(100, -50));
+					actors.add(new Banana(475, -500));
+					actors.add(new Branch(750, -800));	
+				}
+				else if(rnd == 2)
+				{
+					actors.add(new Branch(100, -50));
+					actors.add(new Banana(475, -500));
+					actors.add(new Branch(100, -800));
+				}
+				else if(rnd == 3)
+				{
+					actors.add(new Snake(850, -150));
+					actors.add(new Banana(475, -600));	
+					actors.add(new Branch(100, -800));	
+				}
+				else if(rnd == 4)
+				{
+					actors.add(new Snake(850, -150));
+					actors.add(new Banana(475, -550));
+					actors.add(new Snake(100, -850));
+				}
+				else if(rnd == 5)
+				{
+					actors.add(new Banana(475, -50));
+					actors.add(new Banana(475, -450));
+					actors.add(new Banana(475, -850));
+				}
+				else if(rnd == 6)
+				{
+					actors.add(new Branch(100, -50));
+					actors.add(new Branch(750, -450));
+					actors.add(new Branch(100, -850));
+				}
+				count++;
+
+			}
+			
+			for(Actor a: actors)
+			{
+				a.move();
+			}
+			repaint();
+		}
+
+		public void paint(Graphics g) 
+		{
+			super.paint(g);
+			Graphics2D g2d = (Graphics2D) g;
+			
+			for(int i = 0; i < actors.size(); i++)
+			{
+				ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+				InputStream input1 = classLoader.getResourceAsStream("eagle.png");
+				InputStream input2 = classLoader.getResourceAsStream("eagleflipped.png");
+				InputStream input3 = classLoader.getResourceAsStream("TreeBranch.png");
+				InputStream input4 = classLoader.getResourceAsStream("TreeBranchFlipped.png");
+				InputStream input5 = classLoader.getResourceAsStream("thesnake.png");
+				InputStream input6 = classLoader.getResourceAsStream("banana.png");
+				
+				Image image1 = null;
+				Image image2 = null;
+				Image image3 = null;
+				Image image4 = null;
+				Image image5 = null;
+				Image image6 = null;
+				
+				try {
+					image1 = ImageIO.read(input1);
+					image2 = ImageIO.read(input2);
+					image3 = ImageIO.read(input3);
+					image4 = ImageIO.read(input4);
+					image5 = ImageIO.read(input5);
+					image6 = ImageIO.read(input6);
+				} 
+				catch (IOException e) {
+					e.printStackTrace();
+				}
+				if(actors.get(i) instanceof Bird)
+				{
+					if(actors.get(i).getRight())
+					{
+						g2d.drawImage(image1, actors.get(i).getX(), actors.get(i).getY(), 100, 50, null);
+					}
+					else
+					{
+						
+					  g2d.drawImage(image2, actors.get(i).x, actors.get(i).y, 100, 50, null);
+					}
+				}
+				else if(actors.get(i) instanceof Branch)
+				{
+					if(actors.get(i).getX() > 500)
+					{
+						g2d.drawImage(image3, actors.get(i).getX(), actors.get(i).y, 100, 50, null);
+					}
+					else
+					{
+						
+					  g2d.drawImage(image4, actors.get(i).x, actors.get(i).y, 100, 50, null);
+					}
+				}
+				else if(actors.get(i) instanceof Banana)
+				{
+					g2d.drawImage(image6, actors.get(i).x, actors.get(i).y, 50, 50, null);	
+				}
+				else
+				{
+				   g2d.drawImage(image5, actors.get(i).x, actors.get(i).y, 150, 50, null);
+				}
+			}
+		}	
 }
