@@ -134,4 +134,8 @@ public class Paint extends JPanel implements ActionListener
 				}
 			}
 		}
+		public int getScore()
+		{
+			return score;
+		}
 }
