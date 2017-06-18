@@ -17,18 +17,24 @@ public class Monkey extends Actor
 		{
 			right = true;
 		}
-		if(x == 900)
+		if(x == 800)
 		{
 			right = false;
 		}
 		
 		if(right)
 		{
-			x+= 800;
+			while (x != 800)
+			{
+				x+= 700;
+			}
 		}
 		else
 		{
-			x-= 800;
+			while (x != 100)
+			{
+				x-= 700;
+			}
 		}
 	}
 	
