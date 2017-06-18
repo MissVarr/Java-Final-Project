@@ -2,6 +2,7 @@ import javax.swing.*;
 
 public class Draw 
 {
+	private static JFrame frame;
 	private static boolean state = true;
 	
 	public static void main(String[] args) 
@@ -11,10 +12,10 @@ public class Draw
 	
 	public static void changeState()
 	{
-		JFrame frame = new JFrame("MONKEY MAYHEM");
 		if(state == true)
 		{
 			state = false;
+			frame = new JFrame("MONKEY MAYHEM");
 			frame.setVisible(true);
 			frame.setSize(1000, 1000);
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
