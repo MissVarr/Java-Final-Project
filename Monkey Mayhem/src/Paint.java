@@ -54,12 +54,13 @@ public class Paint extends JPanel implements ActionListener
 		public void actionPerformed(ActionEvent e) 
 		{					
 			
+			System.out.println(actors);
 			if (m.isAlive)
 			{	
 				if(test > 0)
 				{
 					m.move();
-					test-=5;
+					test-=10;
 				}
 				
 				//If the first obstacle in a 'set' hits the bottom of the screen
@@ -171,13 +172,12 @@ public class Paint extends JPanel implements ActionListener
 					if(a instanceof Banana)
 					{
 						score++;
-						((Banana) a).disappear();
+						
 					}
 					else
 					{
 						m.isAlive = false;
 						EndGame.display();
-						
 					}
 				}
 			}
