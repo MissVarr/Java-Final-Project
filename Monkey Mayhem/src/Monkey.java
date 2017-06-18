@@ -1,5 +1,3 @@
-import java.awt.event.KeyListener;
-
 public class Monkey extends Actor
 {
 	boolean right = true;
@@ -15,7 +13,7 @@ public class Monkey extends Actor
 
 	public void move()
 	{
-		/*if(x == 0)
+		if(x == 100)
 		{
 			right = true;
 		}
@@ -26,13 +24,12 @@ public class Monkey extends Actor
 		
 		if(right)
 		{
-			x++;
+			x+= 800;
 		}
 		else
 		{
-			x++;
-		}*/
-		x += 500;
+			x-= 800;
+		}
 	}
 	
 }
