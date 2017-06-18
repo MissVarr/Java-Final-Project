@@ -171,6 +171,7 @@ public class Paint extends JPanel implements ActionListener
 					if(a instanceof Banana)
 					{
 						score++;
+						((Banana) a).disappear();
 					}
 					else
 					{
