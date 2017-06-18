@@ -1,5 +1,4 @@
 import java.awt.*;
-
 import java.awt.event.*;
 import java.util.ArrayList;
 import javax.swing.*;
@@ -33,6 +32,13 @@ public class Paint extends JPanel implements ActionListener
 			//Starts the timer which will run the ActionPerformed method 200 times a second
 			time1 = new Timer(5, this);
 			time1.start();
+			Action pressedAction = new AbstractAction() {
+				public void actionPerformed(ActionEvent e) {
+					m.move();
+				}
+			};
+			this.getInputMap().put(KeyStroke.getKeyStroke("SPACE"), "pressed");
+			this.getActionMap().put("pressed", pressedAction);
 		}
 		
 		
