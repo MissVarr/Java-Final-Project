@@ -131,7 +131,7 @@ public class Paint extends JPanel implements ActionListener
 			
 			if(m.isAlive == false)
 			{
-                g2d.drawString("GAME IS OVER", 500, 700);
+                g2d.drawString("GAME IS OVER", 500, 500);
 
 			}
 			
