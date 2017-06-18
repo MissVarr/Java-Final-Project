@@ -40,4 +40,13 @@ public class Monkey extends Actor
 		}
 	}
 	
+	public boolean isAlive()
+	{
+		return isAlive;
+	}
+	
+	public void kill()
+	{
+		isAlive = false;
+	}
 }
