@@ -18,7 +18,7 @@ public class Paint extends JPanel implements ActionListener
 		private Monkey m;
 		
 		//Incremented every time the monkey intersects with a banana
-		private int score;
+		private static int score;
 		
 		//Constructor
 		public Paint() 
@@ -33,8 +33,12 @@ public class Paint extends JPanel implements ActionListener
 			time1 = new Timer(5, this);
 			time1.start();
 			Action pressedAction = new AbstractAction() {
-				public void actionPerformed(ActionEvent e) {
-					m.move();
+				public void actionPerformed(ActionEvent e) 
+				{
+					if(m.isAlive)
+					{
+						m.move();
+					}
 				}
 			};
 			this.getInputMap().put(KeyStroke.getKeyStroke("SPACE"), "pressed");
@@ -160,13 +164,18 @@ public class Paint extends JPanel implements ActionListener
 					else
 					{
 						m.isAlive = false;
+						EndGame.display();
 						
 					}
 				}
 			}
 		}
-		public int getScore()
+		public static int getScore()
 		{
 			return score;
+		}
+		public static void resetScore()
+		{
+			score = 0;
 		}
 }
