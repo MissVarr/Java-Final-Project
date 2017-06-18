@@ -9,6 +9,11 @@ public class Banana extends Actor
 	}
 	public void move()
 	{
-		y+= 5;
+		y+= 1;
+	}
+	public void disappear()
+	{
+		length = 0;
+		width = 0;
 	}
 }
