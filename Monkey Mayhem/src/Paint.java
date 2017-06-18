@@ -8,17 +8,17 @@ import javax.swing.*;
 public class Paint extends JPanel implements ActionListener
 {
 		//List of all actors on the field except for the monkey
-		ArrayList<Actor> actors = new ArrayList<Actor>();
+		private ArrayList<Actor> actors = new ArrayList<Actor>();
 		
-		Timer time1;
+		private Timer time1;
 		
 		//Variable used to ensure that objects are properly added to the list
-		int count = 0;
+		private int count = 0;
 		
-		Monkey m;
+		private Monkey m;
 		
 		//Incremented every time the monkey intersects with a banana
-		int score;
+		private int score;
 		
 		//Constructor
 		public Paint() 
@@ -27,7 +27,7 @@ public class Paint extends JPanel implements ActionListener
 			actors.add(new Branch(100, -200));
 			actors.add(new Banana(475, -500));
 			actors.add(new Branch(750, -800));
-			m = new Monkey(100, 800);
+			m = new Monkey(100, 600); //ITS ACTUALLY 800!!!
 			
 			//Starts the timer which will run the ActionPerformed method 200 times a second
 			time1 = new Timer(5, this);
@@ -160,8 +160,13 @@ public class Paint extends JPanel implements ActionListener
 					else
 					{
 						m.isAlive = false;
+						
 					}
 				}
 			}
+		}
+		public int getScore()
+		{
+			return score;
 		}
 }
