@@ -24,17 +24,19 @@ public class Monkey extends Actor
 		
 		if(right)
 		{
-			while (x != 800)
+			/*while (x != 800)
 			{
 				x+= 700;
-			}
+			}*/
+			x+=5;
 		}
 		else
 		{
-			while (x != 100)
+			/*while (x != 100)
 			{
 				x-= 700;
-			}
+			}*/
+			x-=5;
 		}
 	}
 	
