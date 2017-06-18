@@ -20,6 +20,8 @@ public class Paint extends JPanel implements ActionListener
 		//Incremented every time the monkey intersects with a banana
 		private static int score;
 		
+		int test;
+		
 		//Constructor
 		public Paint() 
 		{
@@ -32,17 +34,20 @@ public class Paint extends JPanel implements ActionListener
 			//Starts the timer which will run the ActionPerformed method 200 times a second
 			time1 = new Timer(5, this);
 			time1.start();
-			Action pressedAction = new AbstractAction() {
-				public void actionPerformed(ActionEvent e) 
-				{
-					if(m.isAlive)
+			
+				Action pressedAction = new AbstractAction() {
+					public void actionPerformed(ActionEvent e) 
 					{
-						m.move();
+						if(m.isAlive && (m.getX() == 100 || m.getX() == 800))
+						{
+							//m.move();
+							test = 700;
+						}
 					}
-				}
-			};
-			this.getInputMap().put(KeyStroke.getKeyStroke("SPACE"), "pressed");
-			this.getActionMap().put("pressed", pressedAction);
+				};
+				this.getInputMap().put(KeyStroke.getKeyStroke("SPACE"), "pressed");
+				this.getActionMap().put("pressed", pressedAction);
+			
 		}
 		
 		
@@ -50,7 +55,13 @@ public class Paint extends JPanel implements ActionListener
 		{					
 			
 			if (m.isAlive)
-			{
+			{	
+				if(test > 0)
+				{
+					m.move();
+					test-=5;
+				}
+				
 				//If the first obstacle in a 'set' hits the bottom of the screen
 				if (actors.get(count % 3).getY() == 1000)
 				{	
