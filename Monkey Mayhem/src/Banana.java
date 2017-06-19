@@ -2,8 +2,6 @@ import java.awt.Color;
 
 public class Banana extends Actor
 {	
-	private boolean existence = true;
-	
 	public Banana(int startX, int startY)
 	{
 		super(startX, startY, 50, 50, Color.YELLOW);
@@ -13,14 +11,9 @@ public class Banana extends Actor
 	{
 		super.shift(0, 5);
 	}
+	//Method which removes banana
 	public void disappear()
 	{
 		super.reset();
-	}
-	public boolean getExistence()
-	{
-		boolean temp = existence;
-		existence = false;
-		return temp;
 	}
 }
