@@ -1,19 +1,26 @@
+import java.awt.Color;
+
 public class Banana extends Actor
 {	
+	private boolean existence = true;
+	
 	public Banana(int startX, int startY)
 	{
-		x = startX;
-		y = startY;
-		length = 50;
-		width = 50;
+		super(startX, startY, 50, 50, Color.YELLOW);
+
 	}
 	public void move()
 	{
-		y+= 1;
+		super.shift(0, 5);
 	}
 	public void disappear()
 	{
-		length = 0;
-		width = 0;
+		super.reset();
+	}
+	public boolean getExistence()
+	{
+		boolean temp = existence;
+		existence = false;
+		return temp;
 	}
 }
