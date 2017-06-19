@@ -1,6 +1,5 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -17,6 +16,7 @@ import java.awt.event.MouseEvent;
 public class EndGame extends JFrame {
 
 	private JPanel contentPane;
+	private static EndGame frame;
 
 	/**
 	 * Launch the application.
@@ -25,7 +25,7 @@ public class EndGame extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					EndGame frame = new EndGame();
+					frame = new EndGame();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -58,7 +58,7 @@ public class EndGame extends JFrame {
 				
 				Draw.changeState();
 				Paint.resetScore();
-				contentPane.setVisible(false);
+				frame.setVisible(false);
 			}
 		});
 		btnReturn.setForeground(new Color(51, 153, 0));
