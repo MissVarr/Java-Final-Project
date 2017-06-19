@@ -1,17 +1,15 @@
+import java.awt.Color;
 
 public class Branch extends Actor
 {	
 	public Branch(int startX, int startY)
 	{
-		x = startX;
-		y = startY;
-		length = 150;
-		width = 50;
+		super(startX, startY, 150, 50, Color.BLACK);
 	}
 	
 	public void move()
 	{
-		y+= 5;
+		super.shift(0, 5);
 	}
 
 }
