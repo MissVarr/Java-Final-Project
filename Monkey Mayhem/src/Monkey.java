@@ -1,42 +1,33 @@
+import java.awt.Color;
+
 public class Monkey extends Actor
 {
-	boolean right = true;
-	boolean isAlive = true;
+	private boolean right = true;
+	private boolean isAlive = true;
 	
 	public Monkey(int startX, int startY)
 	{
-		x = startX;
-		y = startY;
-		length = 100;
-		width = 100;
+		super(startX, startY, 100, 100, Color.DARK_GRAY);
 	}
 
 	public void move()
 	{
-		if(x == 100)
+		if(getX() == 100)
 		{
 			right = true;
 		}
-		if(x == 800)
+		if(getX() == 800)
 		{
 			right = false;
 		}
 		
 		if(right)
 		{
-			/*while (x != 800)
-			{
-				x+= 700;
-			}*/
-			x+=5;
+			super.shift(10, 0);
 		}
 		else
 		{
-			/*while (x != 100)
-			{
-				x-= 700;
-			}*/
-			x-=5;
+			super.shift(-10, 0);
 		}
 	}
 	
@@ -44,7 +35,6 @@ public class Monkey extends Actor
 	{
 		return isAlive;
 	}
-	
 	public void kill()
 	{
 		isAlive = false;
