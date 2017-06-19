@@ -1,36 +1,33 @@
+import java.awt.Color;
 
 public class Bird extends Actor
 {
 	boolean right = true;
 	
-	public Bird(int startX, int startY, int l, int w)
+	public Bird(int startX, int startY)
 	{
-		x = startX;
-		y = startY;
-		length = l;
-		width = w;
+		super(startX, startY, 100, 100, Color.BLUE);
 	}
 	
 	public void move()
 	{
-		if (x == 0)
+		if (getX() == 0)
 		{
 			right = true;
 		}
-		if (x == 900)
+		if (getX() == 900)
 		{
 			right = false;
 		}
 		if (right)
 		{
-			x++;
+			super.shift(1, 0);
 		}
 		else 
 		{
-			x--;
+			super.shift(-1, 0);
 		}
-		
-		y++;
+		super.shift(0, 1);
 	}
 
 }
