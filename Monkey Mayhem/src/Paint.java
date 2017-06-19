@@ -169,24 +169,27 @@ public class Paint extends JPanel implements ActionListener
 				{
 					if(a instanceof Banana)
 					{
-						if(((Banana) a).getExistence())
-						{
-							score++;
-							((Banana) a).disappear();
-						}
+						//Adds to score and makes banana disappear if it is collided with
+						score++;
+						((Banana) a).disappear();
 					}
 					else
 					{
+						//Ends game if monkey crashes into obstacle
 						m.kill();
 						EndGame.display();
 					}
 				}
 			}
 		}
+		
+		//Returns score
 		public static int getScore()
 		{
 			return score;
 		}
+		
+		//Resets score after each game
 		public static void resetScore()
 		{
 			score = 0;
