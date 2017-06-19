@@ -1,4 +1,3 @@
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -9,7 +8,6 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Color;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -44,13 +42,16 @@ public class EndGame extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
+		//JLabel which informs you of your death
 		JLabel lblYouDied = new JLabel("You Died!");
 		lblYouDied.setForeground(new Color(255, 0, 51));
 		lblYouDied.setFont(new Font("Papyrus", Font.BOLD, 45));
 		
+		//JLabel which displays score
 		JLabel lblYourScoreWas = new JLabel("Your score was: " + Paint.getScore());
 		lblYourScoreWas.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		
+		//Creates button and gives it functionality
 		JButton btnReturn = new JButton("Return to Main Menu");
 		btnReturn.addMouseListener(new MouseAdapter() {
 			@Override
