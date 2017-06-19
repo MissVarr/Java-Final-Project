@@ -52,10 +52,12 @@ public class Menu {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
+		//Sets background to cool looking forest
 		frmJ.setContentPane(new JLabel(new ImageIcon(img)));
 		frmJ.setBounds(100, 100, 700, 500);
 		frmJ.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		//Creates button which allows user to play game
 		JButton btnPlayNow = new JButton("Play Now!");
 		btnPlayNow.addMouseListener(new MouseAdapter() {
 			@Override
@@ -66,11 +68,8 @@ public class Menu {
 		});
 		btnPlayNow.setForeground(new Color(51, 153, 102));
 		btnPlayNow.setFont(new Font("Papyrus", Font.PLAIN, 30));
-		btnPlayNow.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
 		
+		//Creates button which allows user to view instructions
 		JButton btnInstructions = new JButton("Instructions");
 		btnInstructions.addMouseListener(new MouseAdapter() {
 			@Override
