@@ -27,7 +27,6 @@ public abstract class Actor
 	
 	
 	//Alter the x or y coordinates of the Actors
-	
 	public abstract void move();
 	
 	public void shift(int nx, int ny)
@@ -49,7 +48,7 @@ public abstract class Actor
 		width = 0;
 	}
 	
-	//Accessor Methods
+	//Accessor methods
 	public int getX()
 	{
 		return x;
