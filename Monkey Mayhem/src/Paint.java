@@ -38,7 +38,7 @@ public class Paint extends JPanel implements ActionListener
 				Action pressedAction = new AbstractAction() {
 					public void actionPerformed(ActionEvent e) 
 					{
-						if(m.isAlive && (m.getX() == 100 || m.getX() == 800))
+						if(m.isAlive() && (m.getX() == 100 || m.getX() == 800))
 						{
 							//m.move();
 							test = 700;
@@ -53,9 +53,7 @@ public class Paint extends JPanel implements ActionListener
 		
 		public void actionPerformed(ActionEvent e) 
 		{					
-			
-			System.out.println(actors);
-			if (m.isAlive)
+			if (m.isAlive())
 			{	
 				if(test > 0)
 				{
@@ -141,18 +139,18 @@ public class Paint extends JPanel implements ActionListener
 			super.paint(g);
 			Graphics2D g2d = (Graphics2D) g;
 			
-			if(m.isAlive == false)
+			if(m.isAlive() == false)
 			{
                 g2d.drawString("GAME IS OVER", 500, 500);
 
 			}
 			
-			g2d.setColor(Color.BLACK);
+			g2d.setColor(m.getColor());
 			g2d.fillRect(m.getX(), m.getY(), m.getLength(), m.getWidth());
 			
 			for (Actor a: actors)
 			{
-				g2d.setColor(Color.YELLOW);
+				g2d.setColor(a.getColor());
 				g2d.fillRect(a.getX(), a.getY(), a.getLength(), a.getWidth());
 			}
 		}
@@ -171,12 +169,15 @@ public class Paint extends JPanel implements ActionListener
 				{
 					if(a instanceof Banana)
 					{
-						score++;
-						
+						if(((Banana) a).getExistence())
+						{
+							score++;
+							((Banana) a).disappear();
+						}
 					}
 					else
 					{
-						m.isAlive = false;
+						m.kill();
 						EndGame.display();
 					}
 				}
