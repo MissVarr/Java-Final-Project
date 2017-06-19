@@ -1,3 +1,4 @@
+import java.awt.Color;
 
 public class Snake extends Actor
 {
@@ -5,14 +6,11 @@ public class Snake extends Actor
 	
 	public Snake(int startX, int startY)
 	{
-		x = startX;
-		y = startY;
-		length = 50;
-		width = 150;
+		super(startX, startY, 50, 150, Color.GREEN);
 	}
 	
 	public void move()
 	{
-		y+= 5;
+		super.shift(0, 5);
 	}
 }
