@@ -42,24 +42,26 @@ public class Instructions extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		JLabel lblNewLabel = new JLabel("Competition is intense in the jungle! Wall jump from side to side in an epic attempt to");
+		//Creates a bunch of JLabels which displays the instructions
+		JLabel lblNewLabel = new JLabel("          Wall jump from side to side in an epic attempt to");
 		
-		JLabel lblNewLabel_1 = new JLabel("collect bananas for survival! There are bananas of varying colors, with each color ");
+		JLabel lblNewLabel_1 = new JLabel("          collect a multitude of bananas for survival!");
 		
-		JLabel lblNewLabel_2 = new JLabel("being worth a different amount of points. Be careful not to crash into any branches or");
+		JLabel lblNewLabel_2 = new JLabel("          Be careful not to crash into any branches or");
 		
-		JLabel lblNewLabel_3 = new JLabel("other obstacles on your way up the trees. If you can find the golden banana, you will ");
+		JLabel lblNewLabel_3 = new JLabel("          other obstacles on your way up the trees.");
 		
-		JLabel lblNewLabel_4 = new JLabel("be given invincibility for 10 seconds! Survive for as long as you can in the jungle, and");
+		JLabel lblNewLabel_4 = new JLabel("          Survive for as long as you can in the jungle, and");
 		
-		JLabel lblNewLabel_5 = new JLabel("improve every time you play! Once you die, the time that you survive and the score ");
+		JLabel lblNewLabel_5 = new JLabel("          improve every time you play! Once you die, the score ");
 		
-		JLabel lblNewLabel_6 = new JLabel("will be shown. Use the space bar to jump from side to side! Good luck!");
+		JLabel lblNewLabel_6 = new JLabel("          will be shown. Use the space bar to jump from side to side!");
 		
 		JLabel lblNewLabel_7 = new JLabel("Instructions");
 		lblNewLabel_7.setForeground(new Color(51, 153, 0));
 		lblNewLabel_7.setFont(new Font("Papyrus", Font.PLAIN, 24));
 		
+		//Creates button which allows you to return to main menu
 		JButton btnReturnToMain = new JButton("Return to Main Menu");
 		btnReturnToMain.addMouseListener(new MouseAdapter() {
 			@Override
